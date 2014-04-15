@@ -2,7 +2,8 @@ var http = require('http');
 var fs = require('fs');
 var cheerio = require('cheerio');
 
-http.get('http://blog.simondev.net', function(res){
+
+http.get('http://tyda.se/search/'+process.argv[2]+'?lang%5B0%5D=en&lang%5B1%5D=sv', function(res){
     var body = '';
 
     res.on('data', function(d){
@@ -18,7 +19,7 @@ http.get('http://blog.simondev.net', function(res){
       c('.list-translations').children('li:not(.item-title)').find('a').each(function(i, obj){
 
         var item = c(this);
-        var text = item.text().replace(/^\s*/,'').replace(/\s*/,'').replace(/\n/g, '');
+        var text = item.text().replace(/^\s+/,'').replace(/\s+/,'').replace(/\n/g, '');
 
         var lang = item.parent().parent().find('.item-title').text().replace(/^\s+/,'').replace(/\s+$/,'').replace(/\n/g,'');
         if(lastLang != lang){
