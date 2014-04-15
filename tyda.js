@@ -10,9 +10,9 @@ http.get('http://blog.simondev.net', function(res){
     });
 
     res.on('end', function(e){
-      var d = fs.readFileSync('test/test2.html');
+      //var d = fs.readFileSync('test/test.html');
 
-      var c = cheerio.load(d.toString());
+      var c = cheerio.load(body.toString());
 
       var lastLang = '';
       c('.list-translations').children('li:not(.item-title)').find('a').each(function(i, obj){
@@ -22,8 +22,11 @@ http.get('http://blog.simondev.net', function(res){
 
         var lang = item.parent().parent().find('.item-title').text().replace(/^\s+/,'').replace(/\s+$/,'').replace(/\n/g,'');
         if(lastLang != lang){
-          console.log(lang);
-          lastLang = lang;
+          if(lang.length > 0){
+            console.log('');
+            console.log(lang);
+            lastLang = lang;
+          }
         }
 
         if(text.length > 0){
