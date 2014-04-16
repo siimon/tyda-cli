@@ -22,5 +22,8 @@
   "dependencies": {
     "cheerio": "^0.15.0",
     "yargs": "~1.2.1"
+  },
+  "devDependencies": {
+    "sinon": "~1.9.1"
   }
 }
