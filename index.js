@@ -26,5 +26,12 @@ tyda.translate(yargs.argv._[0], yargs.t, yargs.l, function(err, res){
     return console.error(err);
   }
 
-  console.log(res);
+  for(var i in res){
+    var translations = res[i];
+    console.log(i);
+    for(var t in translations){
+      console.log(translations[t]);
+    }
+    console.log('');
+  }
 });
