@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-'use strict';
 
 var yargs = require('yargs')
       .usage('Translate from tyda.se. \n Usage: $0 [text]')
@@ -24,7 +23,7 @@ if(yargs.argv._.length <= 0){
 }
 
 
-tyda.translate(yargs.argv._[0], yargs.t, yargs.l, function(err, res){
+tyda.translate(yargs.argv._[0], yargs.argv.t, yargs.argv.l, function(err, res){
   if(err){
     return console.error(err);
   }
