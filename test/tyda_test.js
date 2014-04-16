@@ -44,7 +44,7 @@ describe('tyda.js', function(){
   it('should output language and all translations in a separate row', function(){
     tyda.translate('', 'en', 'sv', function(err, res){
       assert.equal(8, res.Engelska.length);
-      assert.equal(16, res.Svenska.length);
+      assert.equal(15, res.Svenska.length);
     });
   });
 });

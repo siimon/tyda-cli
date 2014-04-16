@@ -28,7 +28,9 @@ exports.translate = function(text, lang, trans, cb){
             }
           }
 
-          if(translatedText.length > 0){
+          if(translatedText.length > 0 &&
+            translations[lang].indexOf(translatedText) === -1){
+
             translations[lang].push(translatedText);
           }
         });
