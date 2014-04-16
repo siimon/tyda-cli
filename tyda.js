@@ -1,9 +1,28 @@
 var http = require('http');
-var fs = require('fs');
 var cheerio = require('cheerio');
+var yargs = require('yargs')
+      .usage('Translate from tyda.se. \n Usage: $0 [text]')
+      .example('$0 hello', 'Translate hello to Swedish')
+      .example('$0 scharwz -l de', 'Translate scharwz to Swedish')
+      .default('l', 'en')
+      .default('t', 'sv')
+      .alias('l', 'lang')
+      .alias('h', 'help')
+      .demand(['l','t']);
 
+if(yargs.argv.help){
+  console.log(yargs.help());
+  return;
+}
 
-http.get('http://tyda.se/search/'+process.argv[2]+'?lang%5B0%5D=en&lang%5B1%5D=sv', function(res){
+if(yargs.argv._.length <= 0){
+  console.log('Missing text to translate');
+  console.log('');
+  console.log(yargs.help());
+  return;
+}
+
+http.get('http://tyda.se/search/'+yargs.argv._[0]+'?lang%5B0%5D='+yargs.argv.lang+'&lang%5B1%5D='+yargs.argv.t, function(res){
     var body = '';
 
     res.on('data', function(d){
@@ -11,8 +30,6 @@ http.get('http://tyda.se/search/'+process.argv[2]+'?lang%5B0%5D=en&lang%5B1%5D=s
     });
 
     res.on('end', function(e){
-      //var d = fs.readFileSync('test/test.html');
-
       var c = cheerio.load(body.toString());
 
       var lastLang = '';

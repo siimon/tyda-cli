@@ -1,0 +1,26 @@
+{
+  "name": "tyda-cli",
+  "version": "0.1.0",
+  "description": "Tyda.se command line interface",
+  "main": "tyda.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:simewn/tyda-cli.git"
+  },
+  "keywords": [
+    "translate",
+    "tyda"
+  ],
+  "author": "Simon Eriksson <k.simon.eriksson@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.15.0",
+    "yargs": "~1.2.1"
+  }
+}
