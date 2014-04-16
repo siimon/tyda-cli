@@ -18,9 +18,9 @@ exports.translate = function(text, lang, trans, cb){
         c('.list-translations').children('li:not(.item-title)').find('a').each(function(i, obj){
 
           var item = c(this);
-          var translatedText = item.text().replace(/^\s+/,'').replace(/\s+/,'').replace(/\n/g, '');
+          var translatedText = item.text().replace(/(^\s+|\s+$|\n)/,'');
 
-          var lang = item.parent().parent().find('.item-title').text().replace(/(^\s+|\s+$|\n)/,'').replace(/\s+$/,'').replace(/\n/g,'');
+          var lang = item.parent().parent().find('.item-title').text().replace(/(^\s+|\s+$|\n)/,'');
           if(lastLang != lang){
             if(lang.length > 0){
               translations[lang] = [];
