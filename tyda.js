@@ -1,3 +1,4 @@
+
 var http = require('http');
 var cheerio = require('cheerio');
 
@@ -10,7 +11,6 @@ exports.translate = function(text, lang, trans, cb){
       });
 
       res.on('end', function(e){
-        console.log(body);
         var c = cheerio.load(body.toString());
 
         var lastLang = '';

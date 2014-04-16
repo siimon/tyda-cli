@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+'use strict';
+
 var yargs = require('yargs')
       .usage('Translate from tyda.se. \n Usage: $0 [text]')
       .example('$0 hello', 'Translate hello to Swedish')
