@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Tyda.se command line interface",
   "main": "tyda.js",
+  "engines": {
+    "node": ">=0.10.26"
+  },
   "directories": {
     "test": "test"
   },
@@ -12,9 +15,12 @@
   "scripts": {
     "test": "mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@bitbucket.org:simewn/tyda-cli.git"
+  "bugs":{
+    "url": "https://github.com/siimon/tyda-cli/issues"
+  },
+  "repository":{
+    "url": "git@github.com:siimon/tyda-cli.git",
+    "type": "git"
   },
   "keywords": [
     "translate",
