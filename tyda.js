@@ -1,9 +1,9 @@
 
-var http = require('http');
+var https = require('https');
 var cheerio = require('cheerio');
 
 exports.translate = function(text, lang, trans, cb){
-  http.get('http://tyda.se/search/'+text+'?lang%5B0%5D='+lang+'&lang%5B1%5D='+trans, function(res){
+  https.get('https://tyda.se/search/'+text+'?lang%5B0%5D='+lang+'&lang%5B1%5D='+trans, function(res){
       var body = '';
 
       res.on('data', function(d){
